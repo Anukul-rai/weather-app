@@ -3,29 +3,19 @@ import React, { useState, useEffect } from 'react'
 import Search from './components/Search'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Topbuttons from './components/Topbuttons';
+import Input from './components/Input';
+import Timeandloc from './components/Timeandloc';
+import Tempdetails from './components/Tempdetails';
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null);
-  const [cityName, setCityName] = useState("");
-  const [countryCode, setCountryCode] = useState("");
 
-
-  const apikey ='edb1b2074b737302fac36846f4db105e'
-
-  const fetchApi = async() => {
-    const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCode}&appid=${apikey}`,)
-    const data = await res.json()
-    setWeatherData(data)
-    console.log(data)
-  }
-
-  useEffect(()=>{
-    fetchApi()
-  },[])
   return (
-    <div>
-      <Search/>
-      {/* <Card/> */}
+    <div className='mx-auto max-w-screen-lg mt-4 py-5 px-32 bg-gradient-to-br shadow-xl shadow-gray-400 from-cyan-600 to-amber-700'>
+      <Topbuttons />
+      <Input/>
+      <Timeandloc/>
+      <Tempdetails/>
       <ToastContainer />
     </div>
   )
