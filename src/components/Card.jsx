@@ -1,36 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 function Card() {
-
-
-  return (
-    <div className='flex justify-center flex-col items-center h-screen bg-black'>
-      <h2 className='text-white'>Weather Information</h2>
-      <div className='text-white'>
-        {/* Weather details will be displayed here */}
-        <p className='text-2xl font-bold'>Weather Details</p>
-        {weatherData?(
-          <div>
-            <p>Latitude:</p>
-            <p>City: {weatherData.name}</p>
-            <p>Temperature: {Math.round(weatherData.main.temp - 273.15)}°C</p>
-            <p>Condition: {weatherData.weather[0].description}</p>
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )
-        } 
-      </div>
-      <div className='mt-4'>
-        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-          Refresh
-        </button>
-        <button className='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2'>
-          Clear
-        </button>
-      </div>
-    </div>
-  )
+    return (
+        <div className='min-h-screen bg-[url("/images/background.jpg")] bg-cover bg-center '>
+            <div className='flex items-center justify-center flex-col'>
+                <div className='bg-indigo-900 p-5 rounded-2xl shadow-2xl mt-5'>
+                    <h1 className='text-3xl m-3 text-center text-white'>Weather App</h1>
+                    <div className='flex flex-row gap-3 mt-2 mb-5'>
+                        <input
+                            type="text"
+                            placeholder='Enter a location...'
+                            className='rounded-xl bg-white text-gray-600 px-3 py-1'
+                        />
+                        <button className='text-sm py-1 px-3 rounded-3xl bg-yellow-500 border-none transition-colors duration-300 hover:bg-black hover:text-white'>
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default Card
+export default Card;
