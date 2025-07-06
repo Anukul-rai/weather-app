@@ -44,10 +44,11 @@ function Card() {
             </div>
         </div>
             { search && (
-                <div className="mt-6 bg-white text-black p-4 rounded-xl shadow-md max-w-md mx-auto">
+                <div className="mt-6 bg-indigo-800 text-black p-4 rounded-xl shadow-md max-w-md mx-auto ">
                     <h2 className="text-2xl font-bold">{search.city.name}, {search.city.country}</h2>
                     <p className="text-lg">Temperature: {(search.list[0].main.temp - 273.15).toFixed(1)}°C</p>
                     <p>Condition: {search.list[0].weather[0].main}</p>
+                    <p>Wind:{search.list[0].wind.speed}</p>
                     <p>{search.list[0].dt_txt}</p>
                 </div>
                 )}
